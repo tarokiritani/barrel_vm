@@ -1,0 +1,18 @@
+<h1>Analysis List (<%= @strain %>)</h1>
+<div>
+    <table id="analysis">
+        <thead>
+            <tr><th>Type</th> <th>depth</th> </tr>
+        </thead>
+        <tbody>
+            <% @analyses.each do |analysis| %>
+            <tr>
+				<td><%= analysis.analysis_type %></td>
+				<td><%= analysis.cell.depth %></td>
+                <td><%= analysis.file %></td>
+                <td><%= link_to 'show', analysis %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
