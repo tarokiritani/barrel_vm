@@ -1,19 +1,48 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<script type="text/javascript"
-		src="//cdnjs.cloudflare.com/ajax/libs/dygraph/1.1.1/dygraph-combined.js"></script>
-	</head>
 	<body>
+		<p style="text-align:center;">
+			Zoom: click-drag, Pan: shift-click-drag, Restore: double-click
+		</p>
+		<div id="graphdiv1"
+		style="margin: auto;width: 90%;"></div>
 		<div id="graphdiv2"
-		style="width:1000px; height:600px;"></div>
+		style="margin: auto;width: 90%;"></div>
 		<script type="text/javascript">
-			g2 = new Dygraph(
-			document.getElementById("graphdiv2"),
-			"<%= @vm%>"
-			,
-			{}
+			var blockRedraw = false;
+			
+  			var g1 = new Dygraph(
+			    document.getElementById("graphdiv1"),
+			    "<%= @vm %>"
+			    ,
+			    {
+				  ylabel: 'mV'
+				}
 			);
+			
+			var g2 = new Dygraph(
+			    document.getElementById("graphdiv2"),
+			    "<%= @angle %>"
+			    ,
+			    {
+					xlabel: 'sec',
+					ylabel: 'whisker angle (&deg)',
+					underlayCallback: function(canvas, area, g) {
+					    var starts = <%=raw @ons %>;
+                        var ends = <%= raw @offs %>;
+						canvas.fillStyle = "rgba(255, 255, 102, 1.0)";
+						for (i = 0; i < starts.length; i++){
+						var bottom_left = g.toDomCoords(starts[i], -20);
+						var top_right = g.toDomCoords(ends[i], +20);
+                        var left = bottom_left[0];
+                        var right = top_right[0];
+                        canvas.fillRect(left, area.y, right - left, area.h);
+			            }
+                  }
+				}
+			);
+			
+			var sync = Dygraph.synchronize(g1, g2,{zoom: true, selection:true, range:false});
 		</script>
 	</body>
 </html>
