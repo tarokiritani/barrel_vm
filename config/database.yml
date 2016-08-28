@@ -23,9 +23,5 @@ test:
   password: postgres
 
 production:
-  adapter: postgresql
   encoding: SQL_ASCII
-  database: store_test
   pool: 5
-  username: ubuntu
-  password: postgres
