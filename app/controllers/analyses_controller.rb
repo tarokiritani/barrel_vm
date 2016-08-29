@@ -25,11 +25,10 @@ class AnalysesController < ApplicationController
 	@ons = []
 	@offs = []
 	if @analysis.analysis_type == "active touch"
-	  contactobj = s3k.get_object({bucket:'elasticbeanstalk-us-west-2-680684803586', key:'xsgs/' + @analysis.file + '.contact'})
+	  contactobj = s3.get_object({bucket:'elasticbeanstalk-us-west-2-680684803586', key:'xsgs/' + @analysis.file + '.contact'})
 	  contacts = contactobj.body.read
-	  puts contacts
-	  @ons = [1,20,30]
-	  @offs = [15,25,35]
+	  @ons = '[' + contacts.lines[0] + ']'
+	  @offs = '[' + contacts.lines[1] + ']'
 	end
   end
 end

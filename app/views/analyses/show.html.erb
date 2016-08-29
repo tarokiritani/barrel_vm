@@ -28,9 +28,9 @@
 					xlabel: 'sec',
 					ylabel: 'whisker angle (&deg)',
 					underlayCallback: function(canvas, area, g) {
-					    var starts = <%=raw @ons %>;
-                        var ends = <%= raw @offs %>;
-						canvas.fillStyle = "rgba(255, 255, 102, 1.0)";
+					    var starts = <%= @ons %>;
+                        var ends = <%= @offs %>;
+						canvas.fillStyle = "rgba(0, 102, 204, 1.0)";
 						for (i = 0; i < starts.length; i++){
 						var bottom_left = g.toDomCoords(starts[i], -20);
 						var top_right = g.toDomCoords(ends[i], +20);
