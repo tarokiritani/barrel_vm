@@ -18,11 +18,10 @@ class AnalysesController < ApplicationController
 	    :access_key_id => ENV['AWS_ACCESS_KEY_ID'],:secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
 	})
 	s3 = Aws::S3::Client.new(region: 'us-west-2')
-	obj = s3.get_object({bucket:'elasticbeanstalk-us-west-2-680684803586', key:'xsgs/'+@analysis.file})
-	@vm = obj.body.read
-	#obj = s3.get_object({bucket:'elasticbeanstalk-us-west-2-680684803586', key:'xsgs/whisker'+@analysis.file})
-	#@angle = obj.body.read 
-	@angle = "sec,angle\\n1,10\\n2,34\\n10,22\\n20,11\\n30,21\\n40,23\\n50,11\\n60,22\\n"
+	xsgobj = s3.get_object({bucket:'elasticbeanstalk-us-west-2-680684803586', key:'xsgs/'+@analysis.file+'.txt'})
+	@vm = xsgobj.body.read
+	whiskobj = s3.get_object({bucket:'elasticbeanstalk-us-west-2-680684803586', key:'xsgs/'+@analysis.file+'.whisk'})
+	@angle = whiskobj.body.read
 	@ons = [10,20,30]
 	@offs = [15,25,35]
   end
