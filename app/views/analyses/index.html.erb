@@ -2,14 +2,15 @@
 <div>
     <table id="analysis">
         <thead>
-            <tr><th>Type</th> <th>depth</th> </tr>
+            <tr><th>Type</th> <th>Depth (um)</th> <th>Mouse ID</th> <th>Cell ID</th> </tr>
         </thead>
         <tbody>
             <% @analyses.each do |analysis| %>
             <tr>
 				<td><%= analysis.analysis_type %></td>
 				<td><%= analysis.cell.depth %></td>
-                <td><%= analysis.file %></td>
+                <td><%= analysis.cell.mouse.id %></td>
+                <td><%= analysis.cell.id %></td>
                 <td><%= link_to 'show', analysis %></td>
             </tr>
             <% end %>
