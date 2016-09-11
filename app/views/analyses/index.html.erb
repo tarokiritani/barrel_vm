@@ -2,16 +2,16 @@
 <div>
     <table id="analysis">
         <thead>
-            <tr><th class=cell-index>Type</th> <th>Depth (um)</th> <th>Mouse ID</th> <th>Cell ID</th> </tr>
+            <tr><th class=cell-index>Type</th> <th class=cell-index>Depth (um)</th> <th class=cell-index>Mouse ID</th> <th class=cell-index>Cell ID</th> </tr>
         </thead>
         <tbody>
             <% @analyses.each do |analysis| %>
             <tr>
-				<td><%= analysis.analysis_type %></td>
-				<td><%= analysis.cell.depth %></td>
-                <td><%= analysis.cell.mouse.id %></td>
-                <td><%= analysis.cell.id %></td>
-                <td><%= link_to 'show', analysis %></td>
+				<td class=cell-index><%= analysis.analysis_type %></td>
+				<td class=cell-index><%= analysis.cell.depth %></td>
+                <td class=cell-index><%= analysis.cell.mouse.id %></td>
+                <td class=cell-index><%= analysis.cell.id %></td>
+                <td class=cell-index><%= link_to 'show', analysis %></td>
             </tr>
             <% end %>
         </tbody>
