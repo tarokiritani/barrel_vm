@@ -20,7 +20,7 @@ open("\\\\svfas5.epfl.ch\\Users_SV\\kiritani\\My Documents\\TK471\\slice1\\stack
 selectWindow("stack.lsm");
 run("Z Project...", "projection=[Max Intensity]");
 run("Rotate... ", "angle=160 grid=1 interpolation=Bilinear enlarge stack");
-makeRectangle(484, 280, 460, 882);
+makeRectangle(484, 280, 460, 822);
 run("Crop");
 run("Split Channels");
 selectWindow("C3-MAX_stack.lsm");
