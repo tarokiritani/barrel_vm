@@ -1,18 +1,20 @@
 <h1>Analysis List (<%= @strain %>)</h1>
 <div>
     <table>
+        <caption style="caption-side:bottom"><%= will_paginate @analyses %></caption>
         <thead>
-            <tr><th>Type</th> <th class=cell-index>Depth (um)</th> <th class=cell-index>Mouse ID</th> <th class=cell-index>Cell ID</th> </tr>
+            <tr><th>Type</th> <th>Depth (um)</th> <th>Mouse ID</th> <th>Cell ID</th> </tr>
         </thead>
         <tbody>
             <% @analyses.each do |analysis| %>
             <tr>
-				<td class=cell-index><%= link_to analysis.analysis_type, analysis %></td>
-				<td class=cell-index><%= link_to analysis.cell.depth, analysis %></td>
-                <td class=cell-index><%= link_to analysis.cell.mouse.id, analysis %></td>
-                <td class=cell-index><%= link_to analysis.cell.id, analysis %></td>
+				<td><%= link_to analysis.analysis_type, analysis %></td>
+				<td><%= link_to analysis.cell.depth, analysis %></td>
+                <td><%= link_to analysis.cell.mouse.id, analysis %></td>
+                <td><%= link_to analysis.cell.id, analysis %></td>
             </tr>
             <% end %>
         </tbody>
     </table>
+    
 </div>
