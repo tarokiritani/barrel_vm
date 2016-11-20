@@ -9,7 +9,7 @@ class AnalysesController < ApplicationController
 	  selectedneurons = analyses.select{|a| a.cell.mouse[:species_strain].downcase().include? params[:strain]}
 	  @analyses = Analysis.where(id: selectedneurons.map(&:id))
 	end
-	@analyses = @analyses.includes(:cell).order("cells.depth").paginate(:per_page => 15, :page => params[:page])
+	@analyses = @analyses.includes(:cell).order("cells.depth", "analysis_type").paginate(:per_page => 15, :page => params[:page])
 	@strain = params[:strain]
   end
 
