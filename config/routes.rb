@@ -4,6 +4,7 @@ BarrelVm::Application.routes.draw do
   resources :analyses, only: [:index, :show]
   get '/about', to: "static_pages#about"
   get '/contact', to: "static_pages#contact"
+  get '/analysis', to: "static_pages#analysis"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
