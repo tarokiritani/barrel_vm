@@ -8,6 +8,6 @@ class StaticPagesController < ApplicationController
   def contact
   end
   
-  def analysis
+  def groupdata
   end
 end
