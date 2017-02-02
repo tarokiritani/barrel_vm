@@ -16,4 +16,7 @@ class StaticPagesController < ApplicationController
  	  jupyter = s3.get_object({bucket:'elasticbeanstalk-us-west-2-680684803586', key:'electrophysiology.html'})
  	  @jupyter = jupyter.body.read
   end
+  
+  def download
+  end
 end

@@ -5,6 +5,8 @@ BarrelVm::Application.routes.draw do
   get '/about', to: "static_pages#about"
   get '/contact', to: "static_pages#contact"
   get '/groupdata', to: "static_pages#groupdata"
+  get '/download', to: "static_pages#download"
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
