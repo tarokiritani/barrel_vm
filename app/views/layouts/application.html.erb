@@ -6,6 +6,7 @@
   <%= stylesheet_link_tag    params[:controller] %>
   <%= javascript_include_tag "application", 'data-turbolinks-track': 'reload'%>
   <%= csrf_meta_tags %>
+  <base target="_blank">
 </head>
   <body>
     <header class="navbar navbar-fixed-top navbar-inverse">
@@ -14,8 +15,8 @@
         <nav>
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Home",   root_path %></li>
-            <li><%= link_to "Download data",   '#' %></li>
             <li><%= link_to "Analysis",  groupdata_path %></li>
+            <li><%= link_to "Software", software_path %></li>
             <li><%= link_to "About",   about_path %></li>
           </ul>
         </nav>
@@ -23,18 +24,17 @@
 	</header>
 	<div class="container">
       <%= yield %>
-	  <footer class="footer">
-  <small>
-    The membrane potential recordings
-    by Taro Kiritani
-  </small>
-  <nav>
-    <ul>
-      <li><%= link_to "Contact", contact_path %></li>
-      <li><a href="http://lsens.epfl.ch">Petersen Lab @ EPFL</a></li>
-    </ul>
-  </nav>
-</footer>
+      <footer class="footer">
+        <small>
+          The membrane potential recordings by Taro Kiritani
+        </small>
+        <nav>
+          <ul>
+            <li><%= link_to "Contact", contact_path %></li>
+            <li><a href="http://lsens.epfl.ch">Petersen Lab @ EPFL</a></li>
+          </ul>
+        </nav>
+      </footer>
     </div>
   </body>
 </html>

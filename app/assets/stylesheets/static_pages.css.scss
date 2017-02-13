@@ -13,3 +13,24 @@ ul.no_indent {
   padding-left: 10px;
   padding-right: 0px;
 }
+
+td.software_table {
+  border-bottom: 1px solid #ddd;
+  vertical-align: middle;
+}
+
+table.software_table {
+  border-collapse: collapse;
+}
+
+td.bottom {
+  border-bottom: none;
+}
+
+p.inline {
+  display: inline-block;
+}
+
+#button1 , #button2 {
+display:inline-block;
+}

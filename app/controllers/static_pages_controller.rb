@@ -17,6 +17,6 @@ class StaticPagesController < ApplicationController
  	  @jupyter = jupyter.body.read
   end
   
-  def download
+  def software
   end
 end
