@@ -21,12 +21,7 @@ class StaticPagesController < ApplicationController
   end
   
   def download
-    Aws.config.update({
- 	    :access_key_id => ENV['AWS_ACCESS_KEY_ID'],:secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
- 	})
-   	s3 = Aws::S3::Client.new(region: 'us-west-2')
- 	  installer = s3.get_object({bucket:'elasticbeanstalk-us-west-2-680684803586', key:'Installer.zip'}, target: file)
-    send_file installer
+    send_file(Rails.root.join('public', "setup.zip"))
   end
   
 end
