@@ -25,8 +25,8 @@ class StaticPagesController < ApplicationController
  	    :access_key_id => ENV['AWS_ACCESS_KEY_ID'],:secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
  	})
    	s3 = Aws::S3::Client.new(region: 'us-west-2')
- 	  installer = s3.get_object({bucket:'elasticbeanstalk-us-west-2-680684803586', key:'Installer.zip'})
-    send_file installer
+ 	  installer = s3.get_object({bucket:'elasticbeanstalk-us-west-2-680684803586', key:'Installer.zip'}, target: file)
+    send_file robots.txt
   end
   
 end
