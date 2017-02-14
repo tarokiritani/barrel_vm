@@ -26,7 +26,7 @@ class StaticPagesController < ApplicationController
  	})
    	s3 = Aws::S3::Client.new(region: 'us-west-2')
  	  installer = s3.get_object({bucket:'elasticbeanstalk-us-west-2-680684803586', key:'Installer.zip'}, target: file)
-    send_file robots.txt
+    send_file installer
   end
   
 end
