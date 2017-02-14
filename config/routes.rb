@@ -1,4 +1,6 @@
 BarrelVm::Application.routes.draw do
+  get 'hosted_files/download'
+
   root :to => 'static_pages#home'
   get "static_pages/home"
   resources :analyses, only: [:index, :show]
@@ -6,6 +8,7 @@ BarrelVm::Application.routes.draw do
   get '/contact', to: "static_pages#contact"
   get '/groupdata', to: "static_pages#groupdata"
   get '/software', to: "static_pages#software"
+  post '/download', to: "static_pages#download"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

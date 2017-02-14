@@ -6,7 +6,6 @@
   <%= stylesheet_link_tag    params[:controller] %>
   <%= javascript_include_tag "application", 'data-turbolinks-track': 'reload'%>
   <%= csrf_meta_tags %>
-  <base target="_blank">
 </head>
   <body>
     <header class="navbar navbar-fixed-top navbar-inverse">
@@ -31,7 +30,7 @@
         <nav>
           <ul>
             <li><%= link_to "Contact", contact_path %></li>
-            <li><a href="http://lsens.epfl.ch">Petersen Lab @ EPFL</a></li>
+            <li><a href="http://lsens.epfl.ch" target="_blank">Petersen Lab @ EPFL</a></li>
           </ul>
         </nav>
       </footer>
