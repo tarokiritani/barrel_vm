@@ -11,7 +11,7 @@
 		        <li>For Windows only so far</li>
 		        <li><a href="https://github.com/tarokiritani/fast-cam-record-micro-enable" target="_blank">Github repo</a></li>
 		    </ul>
-		    <%= button_to "Get installer", download_path %>
+		    <%= button_to "Get installer", downloadsetup_path %>
 		</td>
 	</tr>
 	
@@ -27,9 +27,10 @@
 	            <li>Compresses data with losless codec (ffv1)</li>
 	            <li>Requies <a href="https://ffmpeg.org/" target="_blank">ffmpeg</a> installed on your PC</li>
 	            <li><a href="https://github.com/tarokiritani/tiffstack2avi" target="_blank">Github repo</a></li>
-	            <p><%= button_to "Get .exe", analyses_path, :form => { :id => "button1" } %>
-	            <p class='inline'> or </p>
-	            <%= button_to "Get .py", "https://github.com/tarokiritani/tiffstack2avi/blob/master/tiff_stack2avi.py", :form => { :id => "button2" } %>	
+	            <p>
+	            	<%= button_to "Get .mat", "https://ch.mathworks.com/matlabcentral/fileexchange/61619-tarokiritani-tiffstack2avi-mat", :form => { :id => "button1" } %>
+	            	<p class='inline'> or </p>
+	            	<%= button_to "Get .py", "https://pypi.python.org/pypi/tiffstack2avi/1.1.6", :form => { :id => "button2", :target => '_blank' } %>	
 	            </p> 
 	        </ul> 
 	    </td>

@@ -20,8 +20,8 @@ class StaticPagesController < ApplicationController
   def software
   end
   
-  def download
-    send_file(Rails.root.join('public', "setup.zip"))
+  def downloadsetup
+    send_file(Rails.root.join('public', "Release.zip"))
   end
   
 end

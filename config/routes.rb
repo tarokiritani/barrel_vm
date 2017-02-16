@@ -8,7 +8,8 @@ BarrelVm::Application.routes.draw do
   get '/contact', to: "static_pages#contact"
   get '/groupdata', to: "static_pages#groupdata"
   get '/software', to: "static_pages#software"
-  post '/download', to: "static_pages#download"
+  post '/downloadsetup', to: "static_pages#downloadsetup"
+  post '/downloadexe', to: "static_pages#downloadexe"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
