@@ -11,26 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160708114139) do
+ActiveRecord::Schema.define(version: 20170819155859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "analyses", force: :cascade do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "file"
-    t.string   "analysis_type"
-    t.string   "comment"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.text     "file"
+    t.text     "analysis_type"
+    t.text     "comment"
     t.integer  "cell_id"
   end
 
   add_index "analyses", ["cell_id"], name: "index_analyses_on_cell_id", using: :btree
 
   create_table "cells", force: :cascade do |t|
-    t.string   "cell_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.text     "cell_type"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.integer  "channel"
     t.string   "brain_area"
     t.string   "layer"
@@ -42,14 +42,14 @@ ActiveRecord::Schema.define(version: 20160708114139) do
     t.string   "experiment_number"
     t.text     "comment"
     t.integer  "mouse_id"
+    t.string   "confirmedlayer"
+    t.string   "confirmedcolumn"
   end
 
-  add_index "cells", ["mouse_id"], name: "index_cells_on_mouse_id", using: :btree
-
   create_table "mice", force: :cascade do |t|
-    t.string   "sex"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.text     "sex"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.string   "species_strain"
     t.datetime "date_of_birth"
     t.integer  "number"
@@ -57,6 +57,4 @@ ActiveRecord::Schema.define(version: 20160708114139) do
     t.string   "cage_number"
   end
 
-  add_foreign_key "analyses", "cells"
-  add_foreign_key "cells", "mice"
 end
